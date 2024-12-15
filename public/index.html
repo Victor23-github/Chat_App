@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <form id="chat-form">
+        <h1>Chat Application</h1>
+        <input
+          type="text"
+          id="message"
+          placeholder="Type a message..."
+          autocomplete="off"
+          required
+        />
+        <input
+          type="text"
+          id="sender"
+          placeholder="Your Name"
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+      <div class="text">
+        <h1>Message</h1>
+        <ul id="messages">
+          <!-- <div id="text">
+            <li class="sender">victor</li>
+            <li class="message">hello</li>
+          </div> -->
+        </ul>
+      </div>
+    </div>
+    <script>
+      const socket = io();
+
+      // Send message when form is submitted
+      document
+        .getElementById('chat-form')
+        .addEventListener('submit', function (event) {
+          event.preventDefault();
+          const message = document.getElementById('message').value;
+          const Sender = document.getElementById('sender').value;
+          socket.emit('chat message', message, Sender);
+          console.log(Sender);
+
+          const div = document.getElementById('messages');
+          const receiver = document.createElement('li');
+
+          document.getElementById('message').value = '';
+        });
+
+      // Listen for incoming messages
+      socket.on('chat message', function (msg, sender) {
+        const div = document.createElement('div');
+        const receiver = document.createElement('li');
+        const text = document.createElement('li');
+        div.className = 'bot';
+        receiver.className = 'sender';
+        text.className = 'message';
+        // mess = `${msg} : `;
+        receiver.textContent = `${sender}`;
+        text.textContent = `${msg}`;
+        document.getElementById('messages').appendChild(div);
+        div.appendChild(receiver);
+        div.appendChild(text);
+        // if (socket.id) {
+        //   div.style.float = 'right';
+        // }
+      });
+    </script>
+  </body>
+</html>

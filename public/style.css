@@ -1,0 +1,91 @@
+*{
+    font-family: 'poppins', sans-serif;
+
+}
+body{
+    background-image: url(./black-brick-wall-textured-background.jpg);
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    
+}
+#app{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+    border: 2px solid #fff;
+}
+
+h1{
+    font-size: 2rem;
+    text-align: center;
+    color: #345;
+}
+#chat-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #fff;
+    background: #eee;
+}
+
+input{
+    height: 40px;
+    width: 250px;
+    margin: 10px 0;
+    padding: 0 10px;
+    
+}
+#messages{
+    overflow-y: scroll;
+    /* border: 2px solid #fff; */
+    height: 75%;
+    /* width: 100%; */
+    margin: 0 10px;
+}
+.bot{
+    width: 200px;
+    margin-top: 5px;
+    color: green;
+    background: #eee;
+    padding: 9px;
+}
+.text{
+    background: #fffdfd;
+    color: #fff;
+    width: 100%;
+    margin: 0 10px;
+    height: 400px;
+}
+.text h1{
+    color: #30025a;
+}
+#text{
+    background: #302c2cd3;
+    padding: 5px 0;
+    border-radius: 9px;
+    
+    padding-left: 10px;
+}
+/* .message {
+    font-size: 1rem;
+    list-style-type: none;
+}
+.sender{
+    font-size: .9rem;
+    font-weight: 600;
+    padding-bottom: 5px;
+    list-style-type: none;
+    color: rgb(0, 0, 255); 
+}*/
+button{
+    color: #fff;
+    height: 40px;
+    width: 280px;
+    background: #345;
+    margin: 15px 0;
+    outline: none;
+    border: none;
+}
